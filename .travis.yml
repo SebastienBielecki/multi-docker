@@ -24,4 +24,13 @@ after_success:
   - docker push binucci/multi-server
   - docker push binucci/multi-worker
 
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "multi-docker"
+  env: "MultiDocker-env"
+  bucket_name: "elasticbeanstalk-us-east-2-419106060738"
+  bucket_path: "multi"
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
 

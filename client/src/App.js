@@ -15,6 +15,7 @@ function App() {
           <div
             className="App-link"
           >
+            Hello there!
             Fibonacci calculator
           </div>
           <Link to="/">Home</Link>
