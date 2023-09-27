@@ -16,4 +16,12 @@ after_success:
   - docker build -t binucci/multi-nginx -f ./nginx
   - docker build -t binucci/multi-server -f ./server
   - docker build -t binucci/multi-worker -f ./worker
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push binucci/multi-client
+  - docker push binucci/multi-nginx
+  - docker push binucci/multi-server
+  - docker push binucci/multi-worker
+
 
