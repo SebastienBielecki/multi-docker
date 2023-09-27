@@ -12,10 +12,10 @@ script:
   - docker run -e CI=true binucci/react-test npm test
 
 after_success:
-  - docker build -t binucci/multi-client -f ./client
-  - docker build -t binucci/multi-nginx -f ./nginx
-  - docker build -t binucci/multi-server -f ./server
-  - docker build -t binucci/multi-worker -f ./worker
+  - docker build -t binucci/multi-client ./client
+  - docker build -t binucci/multi-nginx ./nginx
+  - docker build -t binucci/multi-server ./server
+  - docker build -t binucci/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
